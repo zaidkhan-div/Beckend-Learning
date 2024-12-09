@@ -12,19 +12,26 @@ app.use(express.static('files'))
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
+  res.send('Hello World!')
+})
 
 app.post('/login', (req, res) => {
-   // console.log(req)
-    const {username,password} = req.body;
-     console.log(username,password);
-    //console.log(' req.body', req.body)
-   
+  // console.log(req)
+  const { username, password } = req.body;
+  console.log(username, password);
+  //console.log(' req.body', req.body)
 
-    res.send('Welcome to login page')
-  })
+
+  res.send('Welcome to login page')
+})
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
+  console.log(`Example app listening on port ${port}`)
+})
+
+
+// app.locals.title = 'My App'
+// app.locals.strftime = require('strftime')
+// app.locals.email = 'me@myapp.com'
+
+// console.dir(app.locals.title);

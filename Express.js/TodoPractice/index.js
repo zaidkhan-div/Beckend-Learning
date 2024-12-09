@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000;
+app.use(express.json());
 
 
 const todos = [
@@ -41,6 +42,15 @@ const todos = [
 ];
 
 
+// Basic Routing
+// app.METHOD(PATH, HANDLER)
+
+/* app is an instance of express.
+METHOD is an HTTP request method, in lowercase.
+PATH is a path on the server.
+HANDLER is the function executed when the route is matched. */
+
+
 // Getting Todos Route
 
 app.get('/todo', (req, res) => {
@@ -51,9 +61,7 @@ app.get('/todo', (req, res) => {
 
 app.get('/todo/:id', (request, response) => {
   const todo = todos.find((todo) => todo.id == request.params.id);
-
   // console.log(todo);
-
   if (todo) {
     response.status(200).json(todo);
   }
@@ -64,11 +72,22 @@ app.get('/todo/:id', (request, response) => {
 }) // This worked i can get the obj with id
 
 
+
 // PUT: Like editing an already written note in your notebook.
 // Put Method where we update the existing Object 
 
 app.put('/todo/:id', (req, res) => {
-  const findTodo = todos;
+  const findTodo = todos.find((todo) => todo.id == req.params.id);
+  if (findTodo) {
+    const { title, desc, completed } = req.body;
+    findTodo.title = title;
+    findTodo.desc = desc;
+    findTodo.completed = completed;
+    res.status(200).json({ msg: "Todo Updated Succesfully" });
+    return;
+  }
+  res.status(404).json({ msg: "Could not update Todo" })
+
 });
 
 
@@ -85,7 +104,7 @@ app.post('/todo', (req, res) => {
   catch {
     res.status(404).json({ msg: 'Could not added' })
   }
-})
+}) // This is working Fine i have added
 
 
 
@@ -93,8 +112,8 @@ app.post('/todo', (req, res) => {
 
 app.delete("/todo/:id", (request, response) => {
 
-  const todoIndex = todos.findIndex((todo) => (todo.id == request.params.id));
-  
+  const todoIndex = todos.findIndex((todo) => todo.id == request.params.id);
+
   if (todoIndex) {
     todos.splice(todoIndex, 1);
     response.status(200).json({ msg: "Todo deleted successfully" });
@@ -102,8 +121,7 @@ app.delete("/todo/:id", (request, response) => {
   else {
     response.status(404).json({ msg: "Todo not found" });
   }
-});
-
+}); // Delete Mehtod Worked Properly
 
 
 
@@ -120,7 +138,6 @@ app.delete("/todo/:id", (request, response) => {
 
 
 // Complete app Route
-// app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
