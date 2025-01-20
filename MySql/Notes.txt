@@ -1,0 +1,36 @@
+Primary key & Foreign key
+
+Primary Key is a column or set of columns in the table that uniquely identifies the row
+
+Foreign key is a column or set of columns in the table that refers to the Primary key in another Table
+
+table_name(
+    cust_id int, 
+    Foreign key (cust_id) references anotherTable_name(id) That table's id is now the link 
+)
+
+constarints Check method 
+
+create table name(
+    id int,
+    city varchar(50),
+    age,
+    constarints age_check CHECK (age>=18 AND city ='Delhi')
+)
+
+create table name(
+    id int,
+    age int check (age>=18)
+)
+
+limit clouser select * from students where marks > 75 limit 3;
+this will return only three students
+
+Aggregate Functions 
+Aggregate Functions perform a calculation on a set of values and return signle value
+count(),
+Max(),
+Min(),
+Sum(),
+Avg()
+select Max(marks) from students;

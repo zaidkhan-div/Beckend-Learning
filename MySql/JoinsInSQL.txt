@@ -1,0 +1,54 @@
+Types of Joins 
+Inner Join,left Join,Right Join,Full Join;
+
+Inner Join:
+Return Data that have values i both sides of Table
+
+Syntax 
+select column(s)
+from TableA
+Inner Join TableB
+ON tableA.col_name=tableb.col_name
+
+Then it Retuns the complete the new Row frome the Rows
+
+select *
+from table1
+Inner Join table // inner join with te table two 
+on table1.id = table3.id  // which behave on what 
+
+Out Put Will return New Table
+
+
+
+Left Join 
+Return all records from the left Join table, and the matched record from the right table
+Syntax
+select * 
+from table1 as t1 // From this Table will get complete Data this is out Left Table
+left Join table1 as t2
+on t1.col_name = t2.col_name;
+
+Right Join
+Return all records from the Right Join table, and the matched record from the left table
+Syntax
+select * 
+from table1 as t1 // From this Table will get complete Data this is out Left Table
+Right Join table1 as t2
+on t1.col_name = t2.col_name;
+
+
+Full Join
+return all the records when these is match in either left table or right table
+Syntax
+select * from student as s
+left join course as c
+on s.id=c.id
+UNION
+select * from student as s
+right Join course as c
+ON a.id=c.id
+
+
+// On Mysql Full Join and Outer Join does not work We have to find this complicated way to do
+// We Use UNION get left table & Right Table and UNION them
