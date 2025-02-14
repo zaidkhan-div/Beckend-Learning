@@ -1,0 +1,23 @@
+1) Basics of SQL (Foundation).
+
+What is SQL? Why is it used?
+Understanding Databases & Tables
+SQL Data Types
+Basic Queries (SELECT, WHERE, ORDER BY, LIMIT)
+Inserting Data (INSERT INTO)
+Updating & Deleting Data (UPDATE, DELETE)
+
+2) Intermediate SQL
+
+Filtering Data (LIKE, BETWEEN, IN, NOT IN)
+Joins (INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN)
+Aggregations (COUNT(), SUM(), AVG(), GROUP BY, HAVING)
+Subqueries and Nested Queries
+
+3) Advanced SQL & MySQL Concepts
+
+Indexes & Performance Optimization
+Stored Procedures & Functions
+Triggers & Views
+Transactions (COMMIT, ROLLBACK)
+User Management & Permissions
