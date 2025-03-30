@@ -56,6 +56,7 @@ select * from users order by age desc limit 2 OFFSET 1;
 
 
 // Step 9: Aggregation Functions
+
 // Aggregation functions allow us to perform calculations on multiple rows.
 
 select count(*) as total_users from users;
@@ -65,4 +66,8 @@ select count(*) as total_users from users;
 // Find the youngest user(minimum age):
 SELECT MIN(age) AS youngest FROM users;
 SELECT MAX(age) AS youngest FROM users;
+
+// Task 3: Calculate Average & Sum of Ages
 select avg(age) as average_age from users;
+select avg(age) from users; 
+SELECT SUM(age) AS total_age FROM users;
